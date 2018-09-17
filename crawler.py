@@ -27,8 +27,8 @@ except:
 	print('Wrong input format, follow such pattern: crawler.py "https://www.example.com/" example.html')
 	exit()
 
-driver = webdriver.Firefox('C:\\Users\\Dom\\Desktop\\test_task\\geckodriver-v0.22.0-win64\\')
-# driver = webdriver.Chrome('C:\\Users\\Dom\\Desktop\\test_task\\chromedriver_win32\\chromedriver.exe') # uncomment this line if Firefox isn't installed
+driver = webdriver.Firefox('C:\\Users\\Dom\\task\\geckodriver-v0.22.0-win64\\')
+# driver = webdriver.Chrome('C:\\Users\\Dom\\task\\chromedriver_win32\\chromedriver.exe') # uncomment this line if Firefox isn't installed
 
 try:
 	driver.get(from_url)
@@ -39,7 +39,7 @@ try:
 		# HTML from '<html>':
 		contents_html = driver.execute_script('return document.documentElement.outerHTML')
 		# soup_contents_html = BeautifulSoup(contents_html, 'html.parser')
-		soup_contents_html = BeautifulSoup(contents_html, 'lxml')
+		soup_contents_html = BeautifulSoup(contents_html, 'lxml') # need lxml to be installed
 		# print(soup_contents_html.prettify())
 		soup_contents_html_str = str(soup_contents_html)
 		# soup_contents_html_str = str(soup_contents_html.prettify())
