@@ -21,7 +21,7 @@ try:
     csvfilename = sys.argv[1]   # 'snap.csv'
     # db_name = sys.argv[2]       # 'jobs'
     db_name = csvfilename.split('.')[0]
-    print(db_name)
+    print("You're about to create database", db_name)
 except:
     print('Wrong input format, follow such pattern: ETL.py example.csv')
     # print('Wrong input format, follow such pattern: ETL.py example.csv example')
