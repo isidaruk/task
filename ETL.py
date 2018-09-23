@@ -12,21 +12,42 @@ a database store with jobs records
 import csv
 import psycopg2 # PostgreSQL database adapter.
 
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+
 import sys
 
 
 try:
     csvfilename = sys.argv[1]   # 'snap.csv'
-    
+    # db_name = sys.argv[2]       # 'jobs'
+    db_name = csvfilename.split('.')[0]
+    print(db_name)
 except:
     print('Wrong input format, follow such pattern: ETL.py example.csv')
+    # print('Wrong input format, follow such pattern: ETL.py example.csv example')
     exit()
 
 
 con = None
 try:
-    con_string = "host='localhost' dbname='jobs' user='postgres' password='postgres'"
-    con = psycopg2.connect(con_string) # Connect to the PostgreSQL database.
+    default_con =  psycopg2.connect(host='localhost',
+                                    dbname='postgres', 
+                                    user='postgres', 
+                                    password='postgres')
+    default_con.autocommit = True
+    default_con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+
+    default_cur = default_con.cursor()
+    default_cur.execute('DROP DATABASE IF EXISTS {} ;'.format(db_name))
+    default_cur.execute('CREATE DATABASE {} ;'.format(db_name))
+    default_cur.close()
+
+    # con_string = "host='localhost' dbname='jobs' user='postgres' password='postgres'"
+    # con = psycopg2.connect(con_string) # Connect to the PostgreSQL database.
+    con = psycopg2.connect(host='localhost',
+                            dbname=db_name, 
+                            user='postgres', 
+                            password='postgres')
     
 
     print('Database connection opened successfully.')
@@ -184,4 +205,5 @@ except (Exception, psycopg2.DatabaseError) as error:
 finally:
     if con is not None:
         con.close()
+        print('Database connection closed.')
 
