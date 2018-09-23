@@ -12,6 +12,16 @@ a database store with jobs records
 import csv
 import psycopg2 # PostgreSQL database adapter.
 
+import sys
+
+
+try:
+    csvfilename = sys.argv[1]   # 'snap.csv'
+    
+except:
+    print('Wrong input format, follow such pattern: ETL.py example.csv')
+    exit()
+
 
 con = None
 try:
@@ -73,7 +83,7 @@ try:
     con.commit() # Commit the changes.
 
 
-    with open('snap.csv', 'r') as csvfile:
+    with open(csvfilename, 'r') as csvfile:
         reader = csv.reader(csvfile)
         next(reader) # Skip the header row.
 
