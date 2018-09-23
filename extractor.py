@@ -75,9 +75,9 @@ for i in range(len(f_tabular_data)):
 	if len_sublist > 1:
 		for str_idx in range(len_sublist):
 			if str_idx == 0: # first string 
-				tabular_data[i][3] = f_tabular_data[i][str_idx] + ' ' #'; ' whitespace delimiter instead of semicolon
+				tabular_data[i][3] = f_tabular_data[i][str_idx] + '; ' # semicolon delimiter instead of whitespace ' '
 			elif str_idx < len_sublist - 1: # prelast string
-				tabular_data[i][3] += f_tabular_data[i][str_idx] + ' ' #'; ' whitespace delimiter instead of semicolon
+				tabular_data[i][3] += f_tabular_data[i][str_idx] + '; ' # semicolon delimiter instead of whitespace ' '
 			# elif str_idx == len_sublist - 1:
 			#	tabular_data[i][3] += f_tabular_data[i][str_idx]
 			else:
