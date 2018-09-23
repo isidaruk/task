@@ -38,8 +38,8 @@ try:
 	if req.status_code == 200: # 200 means a successful request
 		# HTML from '<html>':
 		contents_html = driver.execute_script('return document.documentElement.outerHTML')
-		# soup_contents_html = BeautifulSoup(contents_html, 'html.parser')
-		soup_contents_html = BeautifulSoup(contents_html, 'lxml') # need lxml to be installed
+		soup_contents_html = BeautifulSoup(contents_html, 'html.parser') # lxml parser didn't work properly
+		# soup_contents_html = BeautifulSoup(contents_html, 'lxml') # need lxml to be installed
 		# print(soup_contents_html.prettify())
 		soup_contents_html_str = str(soup_contents_html)
 		# soup_contents_html_str = str(soup_contents_html.prettify())
