@@ -9,17 +9,6 @@ jobs.csv
 Output
 a database store with jobs records
 """
-"""
-Loader
-
-Script is used for building a local database, and ETL the CSV file to the database
-
-Input
-jobs.csv
-
-Output
-a database store with jobs records
-"""
 import csv
 import psycopg2 # PostgreSQL database adapter.
 
