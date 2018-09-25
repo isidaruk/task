@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs by Location | {{ location}}</title>
+</head>
+<body>
+   
+    <h1>Open Jobs by Location - {{ location }}</h1>
+
+    {% for job in jobs_by_location %}
+
+    	<ul>
+	        <li> {{ job.job_title }}, {{ job.category }}, {{ job.status }}, {{ location }}</li> 
+	    </ul>
+        
+    {% endfor %}
+
+</body>
+</html>
+
