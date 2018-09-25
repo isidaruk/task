@@ -111,7 +111,7 @@ if __name__ == '__main__':
         return '<h1 style="color: red">API Endpoint</h1>'
 
 
-    @app.route('/jobs')
+    @app.route('/jobs/')
     def jobs():
         jobs = g.session.query(Job).all()
 
