@@ -1,4 +1,17 @@
+"""
+API Endpoint
 
+API to access the database using Flask framework. The API takes in location,
+and returns all the open job records in the database with the location.
+
+For example
+
+Input
+curl http://localhost/jobs/London
+
+Output
+Senior Accountant, Finance Accounting, Regular, London
+"""
 from flask import Flask, g
 from flask import render_template
 
