@@ -87,8 +87,7 @@ class JobLocation(Base):
 
 if __name__ == '__main__':
     # psycopg2
-    engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost/jobs',
-                         echo=True)
+    engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost/jobs')
     Base.metadata.create_all(bind=engine)
 
  
@@ -112,7 +111,7 @@ if __name__ == '__main__':
 
 
     app = Flask(__name__)
-    app.debug = True
+    # app.debug = True
 
 
     @app.before_request
