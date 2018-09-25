@@ -95,19 +95,6 @@ if __name__ == '__main__':
     session = Session()   
 
 
-##    # query the job, print job description
-##    jobs = session.query(Job).filter_by(status='Fixed-term').all()
-##    for job in jobs:
-##        print(job)
-
-
-##    # print jobs based on location Mountain View
-##    q = session.query(Job).join('job_locations', 'location')
-##    q = q.filter(and_(Location.location == 'Mountain View'))
-##
-##    print([job.job_title for job in q])
-
-
 
 
     app = Flask(__name__)
@@ -124,7 +111,7 @@ if __name__ == '__main__':
         return '<h1 style="color: red">API Endpoint</h1>'
 
 
-    @app.route('/jobs/')
+    @app.route('/jobs')
     def jobs():
         jobs = g.session.query(Job).all()
 
